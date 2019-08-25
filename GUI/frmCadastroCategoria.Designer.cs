@@ -75,7 +75,7 @@
             // 
             // btnInserir
             // 
-            this.btnInserir.Location = new System.Drawing.Point(40, 305);
+            this.btnInserir.Location = new System.Drawing.Point(23, 191);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(75, 23);
             this.btnInserir.TabIndex = 8;
@@ -85,7 +85,7 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(202, 305);
+            this.btnAlterar.Location = new System.Drawing.Point(185, 191);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 9;
@@ -95,7 +95,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(121, 305);
+            this.btnBuscar.Location = new System.Drawing.Point(104, 191);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 10;
@@ -105,7 +105,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(289, 305);
+            this.btnExcluir.Location = new System.Drawing.Point(272, 191);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 11;
@@ -115,7 +115,7 @@
             // 
             // btnSalvar
             // 
-            this.btnSalvar.Location = new System.Drawing.Point(370, 305);
+            this.btnSalvar.Location = new System.Drawing.Point(353, 191);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 12;
@@ -125,7 +125,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(451, 305);
+            this.btnCancelar.Location = new System.Drawing.Point(434, 191);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 13;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 361);
+            this.ClientSize = new System.Drawing.Size(710, 273);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.btnExcluir);
