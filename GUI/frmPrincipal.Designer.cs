@@ -92,36 +92,37 @@
             // sUBCATEGORIAToolStripMenuItem
             // 
             this.sUBCATEGORIAToolStripMenuItem.Name = "sUBCATEGORIAToolStripMenuItem";
-            this.sUBCATEGORIAToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.sUBCATEGORIAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sUBCATEGORIAToolStripMenuItem.Text = "Subcategoria";
+            this.sUBCATEGORIAToolStripMenuItem.Click += new System.EventHandler(this.sUBCATEGORIAToolStripMenuItem_Click);
             // 
             // uNIDADEDEMEDIDAToolStripMenuItem
             // 
             this.uNIDADEDEMEDIDAToolStripMenuItem.Name = "uNIDADEDEMEDIDAToolStripMenuItem";
-            this.uNIDADEDEMEDIDAToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.uNIDADEDEMEDIDAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uNIDADEDEMEDIDAToolStripMenuItem.Text = "Unidade de Medida";
             // 
             // produtoToolStripMenuItem
             // 
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             // 
             // fornecedorToolStripMenuItem
             // 
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
-            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
             // 
             // cONSULTAToolStripMenuItem

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GUI
-{
+{   
     public partial class frmCadastroCategoria : Form
     {
         public String operacao;
