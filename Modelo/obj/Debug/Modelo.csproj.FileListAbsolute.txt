@@ -1,0 +1,12 @@
+C:\Users\Wallace\source\repos\projetoEstagio\Modelo\bin\Debug\Modelo.dll
+C:\Users\Wallace\source\repos\projetoEstagio\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Wallace\source\repos\projetoEstagio\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+C:\Users\Wallace\source\repos\projetoEstagio\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\Users\Wallace\source\repos\projetoEstagio\Modelo\obj\Debug\Modelo.dll
+C:\Users\Wallace\source\repos\projetoEstagio\Modelo\obj\Debug\Modelo.pdb
+C:\projetoEstagio1\Modelo\bin\Debug\Modelo.dll
+C:\projetoEstagio1\Modelo\bin\Debug\Modelo.pdb
+C:\projetoEstagio1\Modelo\obj\Debug\Modelo.csprojAssemblyReference.cache
+C:\projetoEstagio1\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\projetoEstagio1\Modelo\obj\Debug\Modelo.dll
+C:\projetoEstagio1\Modelo\obj\Debug\Modelo.pdb
