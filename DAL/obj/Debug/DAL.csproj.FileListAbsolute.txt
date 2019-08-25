@@ -25,3 +25,12 @@ C:\projetoEstagio2\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\projetoEstagio2\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\projetoEstagio2\DAL\obj\Debug\DAL.dll
 C:\projetoEstagio2\DAL\obj\Debug\DAL.pdb
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\bin\Debug\DAL.dll
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\bin\Debug\DAL.pdb
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\bin\Debug\Modelo.dll
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\bin\Debug\Modelo.pdb
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\obj\Debug\DAL.dll
+C:\Users\Wallace\Documents\projetoEstagio2\DAL\obj\Debug\DAL.pdb

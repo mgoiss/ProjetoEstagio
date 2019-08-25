@@ -22,43 +22,82 @@ namespace DAL
         #region
         private DALConexao conexao;
 
+        //Implementação do try para tratamento de erros, caso venha acontecer.
+        /*Caso dê erro e caia no catch, o finally será executado, encerrando a conexão com o banco.*/
+        //Construtor da classe
         public DALCategoria(DALConexao conexaoCategoria)
         {
             this.conexao = conexaoCategoria;
         }
-
+        
         public void Incluir(MCategoria modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "Insert into categoria(categoria_nome) values (@nome); select @@IDENTITY;";
-            cmd.Parameters.AddWithValue("@nome", modelo.NomeCategoria);
-            conexao.Conectar();
-            modelo.CodigoCategoria = Convert.ToInt32(cmd.ExecuteScalar());
-            conexao.Desconectar();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "Insert into categoria(categoria_nome) values (@nome); select @@IDENTITY;";
+                cmd.Parameters.AddWithValue("@nome", modelo.NomeCategoria);
+                conexao.Conectar();
+                modelo.CodigoCategoria = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+            
+            finally
+            {
+                conexao.Desconectar();
+            }
+            
         }
 
         public void Alterar(MCategoria modelo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "Update categoria set categoria_nome = @nome where categoria_cod = @codigo;";
-            cmd.Parameters.AddWithValue("@nome", modelo.NomeCategoria);
-            cmd.Parameters.AddWithValue("@codigo", modelo.CodigoCategoria);
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "Update categoria set categoria_nome = @nome where categoria_cod = @codigo;";
+                cmd.Parameters.AddWithValue("@nome", modelo.NomeCategoria);
+                cmd.Parameters.AddWithValue("@codigo", modelo.CodigoCategoria);
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+            finally
+            {
+                conexao.Desconectar();
+            }
+            
+            
         }
 
         public void Excluir(int codigo)
         {
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "Delete categoria where categoria_cod = @codigo;";
-            cmd.Parameters.AddWithValue("@codigo", codigo);
-            conexao.Conectar();
-            cmd.ExecuteNonQuery();
-            conexao.Desconectar();
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conexao.ObjetoConexao;
+                cmd.CommandText = "Delete categoria where categoria_cod = @codigo;";
+                cmd.Parameters.AddWithValue("@codigo", codigo);
+                conexao.Conectar();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+            finally
+            {
+                conexao.Desconectar();
+            }
+            
+            
         }
 
         /* Método para buscar dados na base de dados e trazer para dentro do DataGridView*/
