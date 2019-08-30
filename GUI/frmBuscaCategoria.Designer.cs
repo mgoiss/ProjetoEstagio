@@ -33,14 +33,14 @@
             this.txtConsultaCategoria = new System.Windows.Forms.TextBox();
             this.btnBuscaCategoria = new System.Windows.Forms.Button();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
-            this.projetoEstagioDataSet = new GUI.ProjetoEstagioDataSet();
-            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriaTableAdapter = new GUI.ProjetoEstagioDataSetTableAdapters.categoriaTableAdapter();
             this.categoriacodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categorianomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projetoEstagioDataSet = new GUI.ProjetoEstagioDataSet();
+            this.categoriaTableAdapter = new GUI.ProjetoEstagioDataSetTableAdapters.categoriaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projetoEstagioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projetoEstagioDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCategoria
@@ -86,20 +86,6 @@
             this.dgvCategoria.TabIndex = 3;
             this.dgvCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsultaCategoria_CellDoubleClick);
             // 
-            // projetoEstagioDataSet
-            // 
-            this.projetoEstagioDataSet.DataSetName = "ProjetoEstagioDataSet";
-            this.projetoEstagioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriaBindingSource
-            // 
-            this.categoriaBindingSource.DataMember = "categoria";
-            this.categoriaBindingSource.DataSource = this.projetoEstagioDataSet;
-            // 
-            // categoriaTableAdapter
-            // 
-            this.categoriaTableAdapter.ClearBeforeFill = true;
-            // 
             // categoriacodDataGridViewTextBoxColumn
             // 
             this.categoriacodDataGridViewTextBoxColumn.DataPropertyName = "categoria_cod";
@@ -114,6 +100,20 @@
             this.categorianomeDataGridViewTextBoxColumn.Name = "categorianomeDataGridViewTextBoxColumn";
             this.categorianomeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // categoriaBindingSource
+            // 
+            this.categoriaBindingSource.DataMember = "categoria";
+            this.categoriaBindingSource.DataSource = this.projetoEstagioDataSet;
+            // 
+            // projetoEstagioDataSet
+            // 
+            this.projetoEstagioDataSet.DataSetName = "ProjetoEstagioDataSet";
+            this.projetoEstagioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // categoriaTableAdapter
+            // 
+            this.categoriaTableAdapter.ClearBeforeFill = true;
+            // 
             // frmBuscaCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,8 +127,8 @@
             this.Text = "frmBuscaCategoria";
             this.Load += new System.EventHandler(this.frmBuscaCategoria_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projetoEstagioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projetoEstagioDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

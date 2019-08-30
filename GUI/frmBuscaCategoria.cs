@@ -40,16 +40,10 @@ namespace GUI
             BLLCategoria bll = new BLLCategoria(conexaoBD);
             dgvCategoria.DataSource = bll.LocalizarDados(txtConsultaCategoria.Text);
         }
-        /*Esse comando é executdado quando o form carrega. Ele só está definindo apenas o tamanho da minha grid e como eu quero 
-         que apareça dentro dela. No caso, "Código" e "Categoria".*/
+     
         private void frmBuscaCategoria_Load(object sender, EventArgs e)
         {
-            // TODO: esta linha de código carrega dados na tabela 'projetoEstagioDataSet.categoria'. Você pode movê-la ou removê-la conforme necessário.
-            btnBuscaCategoria_Click(sender, e);
-            dgvCategoria.Columns[0].HeaderText = "Código";
-            dgvCategoria.Columns[0].Width = 46;
-            dgvCategoria.Columns[1].HeaderText = "Categoria";
-            dgvCategoria.Columns[1].Width = 600;
+        
 
         }
         //Esse é criado automaticamente ao executar o comando de buscar.
@@ -57,7 +51,11 @@ namespace GUI
         {
             // TODO: esta linha de código carrega dados na tabela 'projetoEstagioDataSet.categoria'. Você pode movê-la ou removê-la conforme necessário.
             this.categoriaTableAdapter.Fill(this.projetoEstagioDataSet.categoria);
-
+            btnBuscaCategoria_Click(sender, e);
+            dgvCategoria.Columns[0].HeaderText = "Código";
+            dgvCategoria.Columns[0].Width = 46;
+            dgvCategoria.Columns[1].HeaderText = "Categoria";
+            dgvCategoria.Columns[1].Width = 600;
         }
     }
 }

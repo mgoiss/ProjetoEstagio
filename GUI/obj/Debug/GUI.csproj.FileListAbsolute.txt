@@ -75,3 +75,4 @@ C:\Users\Wallace\Documents\projetoEstagio2\GUI\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\Wallace\Documents\projetoEstagio2\GUI\obj\Debug\GUI.exe
 C:\Users\Wallace\Documents\projetoEstagio2\GUI\obj\Debug\GUI.pdb
 C:\Users\Wallace\Documents\projetoEstagio2\GUI\obj\Debug\GUI.frmCadastroSubCategoria.resources
+C:\Users\Wallace\Documents\projetoEstagio2\GUI\obj\Debug\GUI.frmBuscaSubCategoria.resources

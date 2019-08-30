@@ -35,8 +35,8 @@
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnInserir = new System.Windows.Forms.Button();
             this.cbxCodCat = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtSubCatNome = new System.Windows.Forms.TextBox();
+            this.txtCodSubCategoria = new System.Windows.Forms.TextBox();
+            this.txtNomeSubCategoria = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.lblSubCatNome = new System.Windows.Forms.Label();
             this.lblCodCat = new System.Windows.Forms.Label();
@@ -50,6 +50,7 @@
             this.btnCancelar.TabIndex = 19;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -59,6 +60,7 @@
             this.btnSalvar.TabIndex = 18;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
@@ -68,6 +70,7 @@
             this.btnExcluir.TabIndex = 17;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnBuscar
             // 
@@ -77,6 +80,7 @@
             this.btnBuscar.TabIndex = 16;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnAlterar
             // 
@@ -86,6 +90,7 @@
             this.btnAlterar.TabIndex = 15;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnInserir
             // 
@@ -105,20 +110,20 @@
             this.cbxCodCat.Size = new System.Drawing.Size(121, 21);
             this.cbxCodCat.TabIndex = 20;
             // 
-            // textBox1
+            // txtCodSubCategoria
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(12, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 21;
+            this.txtCodSubCategoria.Enabled = false;
+            this.txtCodSubCategoria.Location = new System.Drawing.Point(12, 25);
+            this.txtCodSubCategoria.Name = "txtCodSubCategoria";
+            this.txtCodSubCategoria.Size = new System.Drawing.Size(100, 20);
+            this.txtCodSubCategoria.TabIndex = 21;
             // 
-            // txtSubCatNome
+            // txtNomeSubCategoria
             // 
-            this.txtSubCatNome.Location = new System.Drawing.Point(12, 77);
-            this.txtSubCatNome.Name = "txtSubCatNome";
-            this.txtSubCatNome.Size = new System.Drawing.Size(100, 20);
-            this.txtSubCatNome.TabIndex = 22;
+            this.txtNomeSubCategoria.Location = new System.Drawing.Point(12, 77);
+            this.txtNomeSubCategoria.Name = "txtNomeSubCategoria";
+            this.txtNomeSubCategoria.Size = new System.Drawing.Size(100, 20);
+            this.txtNomeSubCategoria.TabIndex = 22;
             // 
             // lblCodigo
             // 
@@ -155,8 +160,8 @@
             this.Controls.Add(this.lblCodCat);
             this.Controls.Add(this.lblSubCatNome);
             this.Controls.Add(this.lblCodigo);
-            this.Controls.Add(this.txtSubCatNome);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNomeSubCategoria);
+            this.Controls.Add(this.txtCodSubCategoria);
             this.Controls.Add(this.cbxCodCat);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
@@ -181,8 +186,8 @@
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.ComboBox cbxCodCat;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox txtSubCatNome;
+        private System.Windows.Forms.TextBox txtCodSubCategoria;
+        private System.Windows.Forms.TextBox txtNomeSubCategoria;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Label lblSubCatNome;
         private System.Windows.Forms.Label lblCodCat;
