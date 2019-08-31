@@ -46,18 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBuscaCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscaCategoria.Designer.cs">
-      <DependentUpon>frmBuscaCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBuscaSubCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBuscaSubCategoria.Designer.cs">
-      <DependentUpon>frmBuscaSubCategoria.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCadastroCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,12 +71,6 @@
       <DependentUpon>ProjetoEstagioDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmBuscaCategoria.resx">
-      <DependentUpon>frmBuscaCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmBuscaSubCategoria.resx">
-      <DependentUpon>frmBuscaSubCategoria.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCadastroCategoria.resx">
       <DependentUpon>frmCadastroCategoria.cs</DependentUpon>
     </EmbeddedResource>

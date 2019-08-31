@@ -17,14 +17,15 @@ namespace GUI
             InitializeComponent();
         }
 
-        private void cATEGORIAToolStripMenuItem_Click(object sender, EventArgs e)
+        //Chamando o formulario categoria
+        private void categoriaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmCadastroCategoria f = new frmCadastroCategoria();
             f.ShowDialog();
             f.Dispose();
         }
-
-        private void sUBCATEGORIAToolStripMenuItem_Click(object sender, EventArgs e)
+        //Chamando o formulario subcategoria
+        private void subCategoriaToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             frmCadastroSubCategoria f = new frmCadastroSubCategoria();
             f.ShowDialog();

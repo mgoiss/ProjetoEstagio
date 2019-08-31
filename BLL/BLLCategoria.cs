@@ -1,24 +1,14 @@
 ﻿using DAL;
 using Modelo;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
     public class BLLCategoria
     {
-        private DALConexao conexaoBD;
-        public BLLCategoria(DALConexao conexaoCategoria)
-        {
-            this.conexaoBD = conexaoCategoria;
-        }
-
         /* Aqui foi criada uma pequena restrição para o usuário*/
-        public void Incluir(MCategoria modelo)
+        public static void Incluir(MCategoria modelo)
         {
             if (modelo.NomeCategoria.Trim().Length == 0)
             {
@@ -26,11 +16,10 @@ namespace BLL
             }
             //Para ficar tudo maiúsculo
             modelo.NomeCategoria = modelo.NomeCategoria.ToUpper();
-            DALCategoria objeto = new DALCategoria(conexaoBD);
-            objeto.Incluir(modelo);
+            DALCategoria.Incluir(modelo);
         }
         /* Aqui foi criada uma pequena restrição para o usuário*/
-        public void Alterar(MCategoria modelo)
+        public static void Alterar(MCategoria modelo)
         {
             if (modelo.CodigoCategoria <= 0)
             {
@@ -43,25 +32,21 @@ namespace BLL
             }
             //Para ficar tudo maiúsculo
             modelo.NomeCategoria = modelo.NomeCategoria.ToUpper();
-            DALCategoria objeto = new DALCategoria(conexaoBD);
-            objeto.Alterar(modelo);
+            DALCategoria.Alterar(modelo);
         }
         /*Nos métodos abaixo ainda faltam acrescentar as restrições de usuário. Dentro dos métodos só foram apenas abertas as conexões
          com o banco de dados.*/
-        public void Excluir(int codigo)
+        public static void Excluir(int codigo)
         {
-            DALCategoria objeto = new DALCategoria(conexaoBD);
-            objeto.Excluir(codigo);
+            DALCategoria.Excluir(codigo);
         }
-        public DataTable LocalizarDados(String valor)
+        public static DataTable LocalizarDados(String valor)
         {
-            DALCategoria objeto = new DALCategoria(conexaoBD);
-            return objeto.LocalizarDados(valor);
+            return DALCategoria.LocalizarDados(valor);
         }
-        public MCategoria CarregarDados(int codigo)
+        public static DataTable CarregarGrid()
         {
-            DALCategoria objeto = new DALCategoria(conexaoBD);
-            return objeto.CarregarDados(codigo);
+            return DALCategoria.CarregarGrid();
         }
     }
 }

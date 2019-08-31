@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +8,8 @@ namespace Modelo
 {
     public class MCategoria
     {
+        public int CodigoCategoria { get; set; }
+        public String NomeCategoria { get; set; }
 
         /*Esse é o construtor da classe. Ele deve ser criado sempre que um objeto é instanciado.
          Mesmo se eu não tivesse criado, o programa iria criar automaticamente. Eu criei apenas para iniciar as propriedades.*/
@@ -24,17 +26,9 @@ namespace Modelo
             this.NomeCategoria = CatNome;
         }
 
-        private int categoria_codigo;
-        public int CodigoCategoria
+        public MCategoria(string nomeCategoria)
         {
-            get { return this.categoria_codigo; }
-            set { this.categoria_codigo = value; }
-        }
-        private String categoria_nome;
-        public String NomeCategoria
-        {
-            get { return this.categoria_nome; }
-            set { this.categoria_nome = value; }
+            NomeCategoria = nomeCategoria;
         }
     }
 }

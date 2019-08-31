@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Modelo;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,126 +7,116 @@ namespace DAL
     public class DALSubCategoria
     {
         #region
-        private DALConexao conexao;
-
-        //Construtor da classe
-        public DALSubCategoria(DALConexao conexaoCategoria)
-        {
-            this.conexao = conexaoCategoria;
-        }
-
         /*Percebam que CodigoCategoria foi chamado aqui dentro, pois esta classe se relaciona com a classe categoria.*/
         //Implementação do try para tratamento de erros, caso venha acontecer. 
-        /*Caso dê erro e caia no catch, o finally será executado, encerrando a conexão com o banco.*/
-        public void Incluir(MSubCategoria modelo)
+
+        public static void Incluir(MSubCategoria modelo)
         {
-            
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "Insert into subcategoria(categoria_cod, subCategoria_nome) values (@codigo, @nome); select @@IDENTITY;";
-                cmd.Parameters.AddWithValue("@codigo", modelo.CodigoCategoria);
-                cmd.Parameters.AddWithValue("@nome", modelo.subNomeCategoria);
-                conexao.Conectar();
-                modelo.subCodigoCategoria = Convert.ToInt32(cmd.ExecuteScalar());
+                using (var conn = ConexaoBD.AbrirConexao()) //Passando a string de conexão
+                {
+                    conn.Open(); //Abrindo a conexão
+                    using (var comm = conn.CreateCommand()) //Criando o comando SQL
+                    {
+                        comm.CommandText = "Insert into subcategoria(categoria_cod, subCategoria_nome) values (@codigo, @nome); select @@IDENTITY;";
+                        //Passando valores por parametro
+                        comm.Parameters.Add(new SqlParameter("@codigo", modelo.subNomeCategoria));
+                        comm.Parameters.Add(new SqlParameter("@nome", modelo.CodigoCategoria));
+                        //Executando o comando
+                        comm.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
             }
-           
-            finally
-            {
-                conexao.Desconectar();
-            }
-
         }
 
-        public void Alterar(MSubCategoria modelo)
+        public static void Alterar(MSubCategoria modelo)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "Update subcategoria set subCategoria_nome = @nome, categoria_cod = @codigo where subCategoria_cod = @codigo;";
-                cmd.Parameters.AddWithValue("@nome", modelo.subNomeCategoria);
-                cmd.Parameters.AddWithValue("@subcodigo", modelo.subCodigoCategoria);
-                cmd.Parameters.AddWithValue("@codigo", modelo.CodigoCategoria);
-                conexao.Conectar();
-                cmd.ExecuteNonQuery();
-            }
-            catch(Exception erro)
-            {
-                throw new Exception(erro.Message);
-            }
-            finally
-            {
-                conexao.Desconectar();
-            }
-        }
-
-        public void Excluir(int codigo)
-        {
-            try
-            {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conexao.ObjetoConexao;
-                cmd.CommandText = "Delete subcategoria where subCategoria_cod = @codigo;";
-                cmd.Parameters.AddWithValue("@codigo", codigo);
-                conexao.Conectar();
-                cmd.ExecuteNonQuery();
+                using (var conn = ConexaoBD.AbrirConexao())//Passando a string de conexão
+                {
+                    conn.Open(); //Abrindo a conexão
+                    using (var comm = conn.CreateCommand()) //Criando o comando SQL
+                    {
+                        comm.CommandText = "Update subcategoria set subCategoria_nome = @nome, categoria_cod = @codigo where subCategoria_cod = @codigo; ";
+                        //Passando valores por parametro
+                        comm.Parameters.Add(new SqlParameter("@nome", modelo.subNomeCategoria));
+                        comm.Parameters.Add(new SqlParameter("@subcodigo", modelo.subCodigoCategoria));
+                        comm.Parameters.Add(new SqlParameter("@codigo", modelo.CodigoCategoria));
+                        //Executando o comando
+                        comm.ExecuteNonQuery();
+                    }
+                }
             }
             catch (Exception erro)
             {
                 throw new Exception(erro.Message);
             }
-            finally
-            {
-                conexao.Desconectar();
-            }
         }
 
+        public static void Excluir(int codigo)
+        {
+            try
+            {
+                using (var conn = ConexaoBD.AbrirConexao()) //Passando a string de conexão
+                {
+                    conn.Open(); //Abrindo a conexão
+                    using (var comm = conn.CreateCommand()) //Criando o comando SQL
+                    {
+                        comm.CommandText = "Delete subcategoria where subCategoria_cod = @codigo";
+                        //Passando o valores por parametro
+                        comm.Parameters.Add(new SqlParameter("@codigo", codigo));
+                        //Executando o comando
+                        comm.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception erro)
+            {
+                throw new Exception(erro.Message);
+            }
+        }
+        /* Método para carregar os dados da tabela no DataGridView*/
+        public static DataTable CarregarGrid()
+        {
+            using (var conn = ConexaoBD.AbrirConexao()) //Passando a string de conexão
+            {
+                conn.Open(); //Abrindo a conexão
+                using (var comm = conn.CreateCommand()) //Criando o comando SQL
+                {
+                    comm.CommandText = "Select sub.*, cate.categoria_nome from subcategoria as sub " +
+                        "inner join categoria as cate on sub.categoria_cod = cate.categoria_cod " +
+                        "order by subcategoria_cod desc";
+                    var reader = comm.ExecuteReader(); //Passando o comando 
+                    var table = new DataTable(); //Passando a tabela
+                    table.Load(reader); //Carregando a tabela 
+                    return table; //Retornando a consulta ao Banco de Dados
+                }
+            }
+        }
         /* Método para buscar dados na base de dados e trazer para dentro do DataGridView*/
-        public DataTable LocalizarDados(String valor)
+        public static DataTable LocalizarDados(String valor)
         {
-
-            DataTable tabela = new DataTable();
-            SqlDataAdapter dados = new SqlDataAdapter("Select * from subcategoria", conexao.ConexaoString);
-            dados.Fill(tabela);
-            return tabela;
-        }
-        #endregion Autor da região: Wallace
-
-        /*Esse é método para carregar dados dentro da tela. Ao clicar duas vezes em algum dado na grid, ele executa esse comando 
-         ara buscar no banco e trazer para o grid*/
-        #region
-        public MSubCategoria CarregarDados(int codigo)
-        {
-            MSubCategoria carregaDados = new MSubCategoria();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conexao.ObjetoConexao;
-            cmd.CommandText = "Select * from subcategoria";
-            cmd.Parameters.AddWithValue("@codigo", codigo);
-            conexao.Conectar();
-            /*O comando ExecuteRader está buscando todas as informações na base de dados e salvando no objeto
-             * informacoes.
-             * Logo abaixo foi criado uma condicao para verificar se existe algum registro dentro do objeto.
-             * se existir, o programa vai fazer a leitura da linha e trazer todas as informações salvas.
-             * DataReader é um objeto que serve para ler e acessar os registro na base de dados.  
-             */
-            SqlDataReader informacoes = cmd.ExecuteReader();
-            if (informacoes.HasRows)
+            using (var conn = ConexaoBD.AbrirConexao()) //Passando a string de conexão
             {
-                informacoes.Read();
-                carregaDados.CodigoCategoria = Convert.ToInt32(informacoes["categoria_cod"]);
-                carregaDados.subCodigoCategoria = Convert.ToInt32(informacoes["subCategoria_cod"]);
-                carregaDados.subNomeCategoria = Convert.ToString(informacoes["subCategoria_nome"]);
-
+                conn.Open(); //Abrindo a conexão
+                using (var comm = conn.CreateCommand()) //Criando o comando SQL
+                {
+                    comm.CommandText = "Select * from subcategoria WHERE subcategoria_nome LIKE @nome";
+                    //Passando valores por parametro
+                    comm.Parameters.Add(new SqlParameter("@nome", valor + "%"));
+                    var reader = comm.ExecuteReader(); //Passando o comando 
+                    var table = new DataTable(); //Passando a tabela
+                    table.Load(reader); //Carregando a tabela 
+                    return table; //Retornando a consulta ao Banco de Dados
+                }
             }
-            conexao.Desconectar();
-            return carregaDados;
         }
-        #endregion
-    } 
+        #endregion Autor da região: Wallace        
+    }
 }
