@@ -42,7 +42,15 @@ namespace BLL
         }
         public static DataTable LocalizarDados(String valor)
         {
-            return DALCategoria.LocalizarDados(valor);
+            //Analisando se foi localizado algum registro
+            if (DALSubCategoria.LocalizarDados(valor).Rows.Count > 0)
+            {
+                return DALCategoria.LocalizarDados(valor);
+            }
+            else
+            {
+                throw new Exception("Não foi encontrado nenhum registro!");
+            }            
         }
         public static DataTable CarregarGrid()
         {

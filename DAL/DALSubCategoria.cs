@@ -21,8 +21,8 @@ namespace DAL
                     {
                         comm.CommandText = "Insert into subcategoria(categoria_cod, subCategoria_nome) values (@codigo, @nome); select @@IDENTITY;";
                         //Passando valores por parametro
-                        comm.Parameters.Add(new SqlParameter("@codigo", modelo.subNomeCategoria));
-                        comm.Parameters.Add(new SqlParameter("@nome", modelo.CodigoCategoria));
+                        comm.Parameters.Add(new SqlParameter("@nome", modelo.subNomeCategoria));
+                        comm.Parameters.Add(new SqlParameter("@codigo", modelo.CodigoCategoria));
                         //Executando o comando
                         comm.ExecuteNonQuery();
                     }
@@ -43,7 +43,7 @@ namespace DAL
                     conn.Open(); //Abrindo a conexão
                     using (var comm = conn.CreateCommand()) //Criando o comando SQL
                     {
-                        comm.CommandText = "Update subcategoria set subCategoria_nome = @nome, categoria_cod = @codigo where subCategoria_cod = @codigo; ";
+                        comm.CommandText = "Update subcategoria set subCategoria_nome = @nome, categoria_cod = @codigo where subCategoria_cod = @subcodigo; ";
                         //Passando valores por parametro
                         comm.Parameters.Add(new SqlParameter("@nome", modelo.subNomeCategoria));
                         comm.Parameters.Add(new SqlParameter("@subcodigo", modelo.subCodigoCategoria));
@@ -107,7 +107,9 @@ namespace DAL
                 conn.Open(); //Abrindo a conexão
                 using (var comm = conn.CreateCommand()) //Criando o comando SQL
                 {
-                    comm.CommandText = "Select * from subcategoria WHERE subcategoria_nome LIKE @nome";
+                    comm.CommandText = "Select sub.*, cate.categoria_nome from subcategoria as sub " +
+                        "inner join categoria as cate on sub.categoria_cod = cate.categoria_cod " +
+                        "WHERE subcategoria_nome LIKE @nome order by subcategoria_cod desc";
                     //Passando valores por parametro
                     comm.Parameters.Add(new SqlParameter("@nome", valor + "%"));
                     var reader = comm.ExecuteReader(); //Passando o comando 

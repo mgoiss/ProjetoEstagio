@@ -15,7 +15,6 @@ namespace GUI
 {   
     public partial class frmCadastroCategoria : Form
     {
-        public String operacao;
         public frmCadastroCategoria()
         {
             InitializeComponent();
@@ -83,7 +82,6 @@ namespace GUI
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             try
-
             {
                 /*Aqui eu chamei a classe MCategoria que está na camada Modelo. Caso eu não chamasse ela aqui, eu não iria conseguir acessar
                os atributos da classe. A classe está sendo instanciada pela varíavel modelo, que está guardando todos os atributos da 
@@ -141,7 +139,15 @@ namespace GUI
         /*Esse é o método para buscar os dados.*/
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            dgvCategoria.DataSource = BLLCategoria.LocalizarDados(txtConsultaCategoria.Text);
+            try
+            {
+                dgvCategoria.DataSource = BLLCategoria.LocalizarDados(txtConsultaCategoria.Text);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+            
         }
     }
     
